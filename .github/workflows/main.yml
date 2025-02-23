@@ -1,2 +1,18 @@
-- name: Add To GitHub projects
-  uses: actions/add-to-project@v1.0.2
+name: Add bugs to bugs project
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1.0.1  # Use the latest stable version
+        with:
+          project-url: https://github.com/users/phbl-dev/projects/<projectNumber>
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: bug, needs-triage
+          label-operator: OR
