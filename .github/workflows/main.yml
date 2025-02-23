@@ -15,4 +15,6 @@ jobs:
           project-url: https://github.com/users/phbl-dev/projects/<projectNumber>
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: bug, needs-triage
-          label-operator: OR
+          label-operator: OR 
+          fields: |
+            Status=Backlog
